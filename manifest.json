@@ -15,11 +15,5 @@
       "default_icon": "icons/lego-head-icon.png",
       "default_title": "Lego discount alert",
       "default_popup": "popup/search_set.html"
-    },
-
-    "web_accessible_resources": [
-      "legoSets/75159.png",
-      "legoSets/75192.png",
-      "legoSets/75275.png"
-    ]
+    }
   }
