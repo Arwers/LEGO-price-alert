@@ -1,19 +1,19 @@
 {
     "manifest_version": 2,
-    "name": "Hello world",
-    "version": "1.0",
-  
-    "description": "Adds a red border to all webpages matching mozilla.org.",
-  
+    "name": "Lego discount alert",
+    "version": "0.0.1",
+
+    "description": "Sends a notification when a Lego set is on sale.",
+
     "icons": {
-      "48": "icons/border-48.png"
+      "48": "icons/lego-head-icon.png"
     },
-  
-    "content_scripts": [
-      {
-        "matches": ["*://*.mozilla.org/*"],
-        "js": ["app.js"]
-      }
-    ]
+
+    "permissions": ["activeTab"],
+
+    "browser_action": {
+      "default_icon": "icons/lego-head-icon.png",
+      "default_title": "Lego discount alert",
+      "default_popup": "popup/search_set.html"
+    }
   }
-  
