@@ -59,4 +59,4 @@ Done!
 Project is in active development
 
 ## Sources
-* [MDN Web Docs](https://developer.mozilla.org/en-US/)3
+* [MDN Web Docs](https://developer.mozilla.org/en-US/)
