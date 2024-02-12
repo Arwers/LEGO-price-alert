@@ -8,18 +8,47 @@ const cors = require('cors');
 const app = express();
 app.use(express.json());
 
-const legoSets = [];
-
-//var jsonContent = JSON.parse(contents);
+// all lego sets in database
+const legoSets = [
+    {id: 1, name: 'Lego City', price: 49.99},
+    {id: 2, name: 'Lego Star Wars', price: 59.99},
+    {id: 3, name: 'Lego Friends', price: 39.99},
+    {id: 4, name: 'Lego Technic', price: 79.99},
+    {id: 5, name: 'Lego Harry Potter', price: 69.99}
+];
 
 app.use(cors());
  
-app.post('/api/v1/legoSetId', (req, res) => {
-    const legoSet = {
-        legoSetId: req.body.legoSetId,
-    };
-    legoSets.push(legoSet);
-    res.send(`Lego Set ID: ${legoSet.legoSetId} is priced at $100.00`);
+// GET lego price by id
+app.get('/v1/legoset/price/:id', (req, res) => {
+    const id = req.params.id;
+    for (const set of legoSets) {
+        if (set.id == id) {
+            res.send({price: set.price});
+        }
+    }
+});
+
+// GET lego name by id
+app.get('/v1/legoset/name/:id', (req, res) => {
+    const id = req.params.id;
+    for (const set of legoSets) {
+        if (set.id == id) {
+            res.send({id: id, name: set.name});
+        }
+    }
+});
+
+// PATCH lego new price
+app.patch('/v1/legoset/price/:id', (req, res) => {
+    const id = req.params.id;
+    const newPrice = req.body.price;
+    for (const set of legoSets) {
+        if (set.id == id) {
+            set.price = newPrice;
+            res.send({id: id, price: newPrice});
+        }
+    }
 });
 
 // Environment variable for port
