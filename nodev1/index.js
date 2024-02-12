@@ -24,7 +24,7 @@ app.get('/v1/legoset/price/:id', (req, res) => {
     const id = req.params.id;
     for (const set of legoSets) {
         if (set.id == id) {
-            res.send({price: set.price});
+            res.send({id: id, price: set.price});
         }
     }
 });
